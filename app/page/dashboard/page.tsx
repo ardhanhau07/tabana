@@ -2,6 +2,7 @@
 
 import { DaftarLaporan, DaftarLaporanProps } from '@/app/components/dashboard/daftar_laporan'
 import React from 'react'
+import { SidebarMenu, SidebarProps, Sidebar } from '@/app/components/common/sidebar'
 
 interface Tab {
   title: string
@@ -50,10 +51,34 @@ export default function Dashboard() {
             children: <div></div>
         }
     ]
+    const side_menus : SidebarMenu[] = [
+        {
+            menu: "Daftar Laporan",
+            link: "#"
+        },
+        {
+            menu: "Prioritas",
+            link: "#"
+        },
+        {
+            menu: "Penugasan",
+            link: "#"
+        },
+        {
+            menu: "Eskalasi",
+            link: "#"
+        },
+        {
+            menu: "Tempat Evakuasi",
+            link: "#"
+        },
+    ]
     const [openTab, setOpenTab] = React.useState(1);
     
     return (
         <div>
+            <Sidebar id="aaaa" menus={side_menus}>
+            </Sidebar>
             <div className="text-sm font-medium text-center text-body ">
                 <ul className="flex mb-0 list-none flex-wrap pt-3 pb-4 flex-row">
                     {tabs.map((tab, index) => (
