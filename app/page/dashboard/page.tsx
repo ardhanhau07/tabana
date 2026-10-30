@@ -1,5 +1,6 @@
 "use client"
 
+import { DaftarLaporan, DaftarLaporanProps } from '@/app/components/dashboard/daftar_laporan'
 import React from 'react'
 
 interface Tab {
@@ -31,6 +32,24 @@ export default function Dashboard() {
             index : 4
         },
     ]
+    const laporan_baru: DaftarLaporanProps[] = [
+        {
+            id:"12",
+            nama:"Nama Laporan1",
+            status:'Bahaya',
+            prioritas:1,
+            gambar:"AAAA",
+            children: <div></div>
+        },
+        {
+            id:"12",
+            nama:"Nama Laporan2",
+            status:'Bahaya',
+            prioritas:1,
+            gambar:"AAAA",
+            children: <div></div>
+        }
+    ]
     const [openTab, setOpenTab] = React.useState(1);
     
     return (
@@ -51,6 +70,13 @@ export default function Dashboard() {
                         </li>
                     ))}
                 </ul>
+            </div>
+            <div>
+                {laporan_baru.map((lap, index) => (
+                <DaftarLaporan id={lap.id} nama={lap.nama} status={lap.status} prioritas={lap.prioritas} gambar={lap.gambar}>
+                    <div></div>
+                </DaftarLaporan>
+                ))}
             </div>
         </div>
     );
